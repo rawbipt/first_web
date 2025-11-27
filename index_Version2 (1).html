@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>神秘小程序</title>
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: "PingFang SC", "微软雅黑", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .apology-card {
+      background: #fff;
+      padding: 32px 24px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      text-align: center;
+      width: 320px;
+    }
+    .apology-img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      background: #eee;
+    }
+    .apology-text {
+      font-size: 20px;
+      color: #5a5a5a;
+      margin-bottom: 28px;
+    }
+    .apology-btn {
+      padding: 8px 26px;
+      background: #ffbcbc;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .apology-btn:active {
+      background: #e18a8a;
+    }
+  </style>
+</head>
+<body>
+  <div class="apology-card">
+    <img id="apologyImg" class="apology-img" src="" alt="道歉表情">
+    <div id="apologyTxt" class="apology-text"></div>
+    <button class="apology-btn" onclick="generateApology()">下一个</button>
+  </div>
+
+  <script>
+    const apologies = [
+      "对不起对不起对不起。",
+      "别生气了好不好。",
+      "下次不开玩笑了。",
+      "对不起对不起对不起。",
+      "别生气了好不好。",
+      "下次不开玩笑了。"
+    ];
+    // 你可以用本地图片或链接表达可爱道歉的风格
+    const images = [
+      "https://ts4.tc.mm.bing.net/th/id/OIP-C.63Ue9zBGwqYR4j2OS5iNfQHaEP?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://c-ssl.dtstatic.com/uploads/item/201802/13/20180213124031_FxsGP.thumb.400_0.gif",
+      "https://ts1.tc.mm.bing.net/th/id/OIP-C.u2QOQ__OXcNPGMcOy_LipQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://ts4.tc.mm.bing.net/th/id/OIP-C.63Ue9zBGwqYR4j2OS5iNfQHaEP?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "https://c-ssl.dtstatic.com/uploads/item/201802/13/20180213124031_FxsGP.thumb.400_0.gif",
+      "https://ts1.tc.mm.bing.net/th/id/OIP-C.u2QOQ__OXcNPGMcOy_LipQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3"
+    ];
+
+    function generateApology() {
+      const apology = apologies[Math.floor(Math.random() * apologies.length)];
+      const img = images[Math.floor(Math.random() * images.length)];
+      document.getElementById('apologyTxt').textContent = apology;
+      document.getElementById('apologyImg').src = img;
+    }
+
+    // 初始化
+    window.onload = generateApology;
+  </script>
+</body>
+</html>
